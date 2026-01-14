@@ -293,3 +293,63 @@ highs-problem-set
 Options.md
 
 build-latest
+
+# Dr Zhen Chen
+# -----------------------
+# C++ build artifacts
+# -----------------------
+*.obj
+*.o
+*.lo
+*.la
+*.libs
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# -----------------------
+# CMake generated files
+# -----------------------
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+*.cmake
+*.ninja
+*.check_cache
+*.make
+*.d
+
+# -----------------------
+# Misc
+# -----------------------
+*.json
+*.bin
+*.ddi
+*.modmap
+*.manifest
+*.rc
+*.res
+*.yaml
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.yaml
+*.ninja
+*.bin
+*.bin
+*.ninja_deps
+*.ninja_log
+*.log
+*.pc
+*.tcl
