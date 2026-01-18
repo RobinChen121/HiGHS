@@ -2,19 +2,19 @@
 #define HCONFIG_H_
 
 #define FAST_BUILD
-#define ZLIB_FOUND
+/* #undef ZLIB_FOUND */
 #define CUPDLP_CPU
 /* #undef CUPDLP_GPU */
 /* #undef HIPO */
 #define CMAKE_BUILD_TYPE "Debug"
 /* #undef HIGHSINT64 */
 /* #undef HIGHS_NO_DEFAULT_THREADS */
-/* #undef HIGHS_HAVE_MM_PAUSE */
-#define HIGHS_HAVE_BUILTIN_CLZ
-/* #undef HIGHS_HAVE_BITSCAN_REVERSE */
+#define HIGHS_HAVE_MM_PAUSE
+/* #undef HIGHS_HAVE_BUILTIN_CLZ */
+#define HIGHS_HAVE_BITSCAN_REVERSE
 /* #undef BLAS_LIBRARIES */
 
-#define HIGHS_GITHASH "3c26f3306"
+#define HIGHS_GITHASH "7db9477ed"
 #define HIGHS_VERSION_MAJOR 1
 #define HIGHS_VERSION_MINOR 12
 #define HIGHS_VERSION_PATCH 0

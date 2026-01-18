@@ -353,3 +353,19 @@ compile_commands.json
 *.log
 *.pc
 *.tcl
+editor.xml
+/.idea
+
+# -----------------------
+# Build folders
+# -----------------------
+/build/
+/bin/
+/lib/
+/dist/
+/Debug/
+/Release/
+/out/
+**/cmake-build-*/
+/CMakeFiles/
+!/build/*.csv
