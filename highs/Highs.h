@@ -42,6 +42,8 @@ const char* highsGithash();
 class Highs {
  public:
   Highs();
+  // virtual ~ 表示这是一个虚析构函数。当 HiGHS 求解器对象被销毁时（无论它是被当作父类还是子类销毁），
+  // 它都会在临死前自动去把日志文件关掉，确保不泄露系统资源
   virtual ~Highs() { this->closeLogFile(); }
 
   /**

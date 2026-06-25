@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.30)
 if (NOT BUILD_CXX)
   return()
 endif()

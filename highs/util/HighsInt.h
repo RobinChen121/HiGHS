@@ -23,7 +23,8 @@
 
 #include "HConfig.h"
 
-#ifdef HIGHSINT64
+// “如果在编译时启用了 HIGHSINT64 配置，那么就把 HighsInt 这个类型定义为 64 位整数
+#ifdef HIGHSINT64 // 这个配置相当于以一个 bool 变量，这个是一个无值的宏
 typedef int64_t HighsInt;
 typedef uint64_t HighsUInt;
 #define HIGHSINT_FORMAT PRId64

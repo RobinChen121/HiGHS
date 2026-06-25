@@ -56,6 +56,7 @@
 using std::cout;
 using std::endl;
 
+// highs 求解器的全局参数在 HConst.h 这个文件中
 int main() {
   // Create and populate a HighsModel instance for the LP
   //
@@ -85,9 +86,9 @@ int main() {
   // a_start_ has num_col_1 entries, and the last entry is the number
   // of nonzeros in A, allowing the number of nonzeros in the last
   // column to be defined
-  model.lp_.a_matrix_.start_ = {0, 2, 5};
-  model.lp_.a_matrix_.index_ = {1, 2, 0, 1, 2};
-  model.lp_.a_matrix_.value_ = {1.0, 3.0, 1.0, 2.0, 2.0};
+  model.lp_.a_matrix_.start_ = {0, 2, 5}; // 0-1 在第一列，2-4 在第二列
+  model.lp_.a_matrix_.index_ = {1, 2, 0, 1, 2}; // row index
+  model.lp_.a_matrix_.value_ = {1.0, 3.0, 1.0, 2.0, 2.0}; // values in each column
   //
   // Create a Highs instance
   Highs highs;
