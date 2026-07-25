@@ -9,20 +9,20 @@
 #  ifndef HIGHS_EXPORT
 #    ifdef highs_EXPORTS
         /* We are building this library */
-#      define HIGHS_EXPORT 
+#      define HIGHS_EXPORT __attribute__((visibility("default")))
 #    else
         /* We are using this library */
-#      define HIGHS_EXPORT 
+#      define HIGHS_EXPORT __attribute__((visibility("default")))
 #    endif
 #  endif
 
 #  ifndef HIGHS_NO_EXPORT
-#    define HIGHS_NO_EXPORT 
+#    define HIGHS_NO_EXPORT __attribute__((visibility("hidden")))
 #  endif
 #endif
 
 #ifndef HIGHS_DEPRECATED
-#  define HIGHS_DEPRECATED __declspec(deprecated)
+#  define HIGHS_DEPRECATED __attribute__ ((__deprecated__))
 #endif
 
 #ifndef HIGHS_DEPRECATED_EXPORT
