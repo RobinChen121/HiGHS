@@ -314,13 +314,13 @@ HighsStatus Highs::passModel(HighsModel model) {
   HighsStatus return_status = HighsStatus::kOk;
   // Clear the incumbent model and any associated data
   clearModel();
-  HighsLp& lp = model_.lp_;
-  HighsHessian& hessian = model_.hessian_;
+  HighsLp& lp = model_.lp_; // 引用一个类的对象，避免值拷贝
+  HighsHessian& hessian = model_.hessian_; // hessian 是为非线性规划准备的
   // Move the model's LP and Hessian to the internal LP and Hessian
   lp = std::move(model.lp_);
   hessian = std::move(model.hessian_);
   lp.origin_name_ = "Original";
-  assert(lp.a_matrix_.formatOk());
+  assert(lp.a_matrix_.formatOk()); // format 是 lp 里 a_matrix 的一个属性
   if (lp.num_col_ == 0 || lp.num_row_ == 0) {
     // Model constraint matrix has either no columns or no
     // rows. Clearly the matrix is empty, so may have no orientation
@@ -335,6 +335,7 @@ HighsStatus Highs::passModel(HighsModel model) {
     lp.a_matrix_.value_.clear();
   } else {
     // Matrix has rows and columns, so a_matrix format must be valid
+    // 似乎跟前面那个 assert 重复了
     if (!lp.a_matrix_.formatOk()) return HighsStatus::kError;
   }
   // Dimensions in a_matrix_ may not be set, so take them from lp.
@@ -361,6 +362,7 @@ HighsStatus Highs::passModel(HighsModel model) {
                                       assessHessian(hessian, options_),
                                       return_status, "assessHessian");
   if (return_status == HighsStatus::kError) return return_status;
+  // 后面是检查 hessian 的
   if (hessian.dim_) {
     // Clear any zero Hessian
     if (hessian.numNz() == 0) {

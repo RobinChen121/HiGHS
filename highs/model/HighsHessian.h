@@ -21,7 +21,7 @@
 
 class HighsHessian {
  public:
-  HighsHessian() { clear(); }
+  HighsHessian() { clear(); } // 这个是构造函数，kTriangular 是在里面指定的
   HighsInt dim_;
   HessianFormat format_;
   std::vector<HighsInt> start_;
