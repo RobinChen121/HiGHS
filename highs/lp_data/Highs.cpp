@@ -974,7 +974,7 @@ HighsStatus Highs::run() {
   // Used when deveoping unit tests in TestUserScale.cpp
   //  this->writeModel("");
   HighsStatus status;
-  if (!this->multi_linear_objective_.size()) {
+  if (!this->multi_linear_objective_.size()) { // 表示不是多目标时
     status = this->optimizeModel();
     if (options_had_highs_files) {
       // This call to Highs::run() had HiGHS files in options, so
