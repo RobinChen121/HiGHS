@@ -1144,6 +1144,7 @@ HighsStatus Highs::optimizeModel() {
   // Ensure that all vectors in the model have exactly the right size
   exactResizeModel();
 
+  // 检查是否为混合整数型
   if (model_.isMip() && solution_.value_valid) {
     // Determine whether the current (partial) solution of a MIP is
     // feasible and, if not, try to complete the assignment with
@@ -1208,7 +1209,7 @@ HighsStatus Highs::optimizeModel() {
     }
   }
 
-  if (model_.lp_.model_name_.compare(""))
+  if (model_.lp_.model_name_.compare("")) // 比较字符串，这一句是判断是否非空
     highsLogDev(options_.log_options, HighsLogType::kVerbose,
                 "Solving model: %s\n", model_.lp_.model_name_.c_str());
 
@@ -1398,7 +1399,7 @@ HighsStatus Highs::optimizeModel() {
            static_cast<size_t>(incumbent_lp.num_row_));
   }
   if (basis_.valid) assert(basis_.useful);
-
+  // 默认还是 presolve 的
   const bool without_presolve = options_.presolve == kHighsOffString;
   if ((unconstrained_lp || has_basis || without_presolve) &&
       solver_will_use_basis) {
@@ -3603,9 +3604,10 @@ void Highs::deprecationMessage(const std::string& method_name,
   }
 }
 
+// 第二个参数默认为 false
 HighsPresolveStatus Highs::runPresolve(const bool force_lp_presolve,
                                        const bool force_presolve) {
-  presolve_.clear();
+  presolve_.clear(); // 对于频繁调用的对象显式提供 clear 函数才有价值
   // Exit if presolve is set to off (unless presolve is forced)
   if (options_.presolve == kHighsOffString && !force_presolve)
     return HighsPresolveStatus::kNotPresolved;
@@ -3619,7 +3621,7 @@ HighsPresolveStatus Highs::runPresolve(const bool force_lp_presolve,
 
   // Ensure that the LP is column-wise
   HighsLp& original_lp = model_.lp_;
-  original_lp.ensureColwise();
+  original_lp.ensureColwise(); // 又判断 column-wise 了
 
   if (original_lp.num_col_ == 0 && original_lp.num_row_ == 0)
     return HighsPresolveStatus::kNullError;
