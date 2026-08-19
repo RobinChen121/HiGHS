@@ -1,18 +1,18 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/c++ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF -G Ninja -S /Users/zhenchen/Documents/HiGHS -B /Users/zhenchen/Documents/HiGHS/cmake-build-debug
--- The CXX compiler identification is AppleClang 21.0.0.21000101
--- The C compiler identification is AppleClang 21.0.0.21000101
+"D:\Program Files\JetBrains\CLion 2025.3.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/Program Files/JetBrains/CLion 2025.3.3/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\chenzhen\HiGHS -B D:\chenzhen\HiGHS\cmake-build-debug
+-- The CXX compiler identification is MSVC 19.50.35725.0
+-- The C compiler identification is MSVC 19.50.35725.0
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Check for working CXX compiler: D:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
+-- Check for working C compiler: D:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- HIGHS version: 1.12.0
--- Git hash: 0f4cb540fa
+-- Git hash: 2ed5600b5b
 -- Build C++ library: ON
 -- Build C++ executable: ON
 -- Build Fortran: OFF
@@ -32,7 +32,7 @@
 -- Looking for C++ include stddef.h - found
 -- Check size of long
 -- Check size of long - done
--- Found long size: 8
+-- Found long size: 4
 -- Check size of long long
 -- Check size of long long - done
 -- Found long long size: 8
@@ -41,7 +41,7 @@
 -- Found int64_t size: 8
 -- Check size of unsigned long
 -- Check size of unsigned long - done
--- Found unsigned long size: 8
+-- Found unsigned long size: 4
 -- Check size of unsigned long long
 -- Check size of unsigned long long - done
 -- Found unsigned long long size: 8
@@ -52,35 +52,39 @@
 -- Check size of int * - done
 -- Found int * size: 8
 -- IPO / LTO supported by compiler: YES
--- IPO / LTO: OFF as requested by user
+-- IPO / LTO: disabled by default when building a static library; set CMAKE_INTERPROCEDURAL_OPTIMIZATION=ON to enable
 -- Performing Test HIGHS_HAVE_MM_PAUSE
--- Performing Test HIGHS_HAVE_MM_PAUSE - Failed
--- Performing Test HIGHS_HAVE_BUILTIN_CLZ
--- Performing Test HIGHS_HAVE_BUILTIN_CLZ - Success
--- Found ZLIB: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libz.tbd (found suitable version "1.2.12", minimum required is "1.2.3")
+-- Performing Test HIGHS_HAVE_MM_PAUSE - Success
+-- Performing Test HIGHS_HAVE_BITSCAN_REVERSE
+-- Performing Test HIGHS_HAVE_BITSCAN_REVERSE - Success
+-- Performing Test COMPILER_SUPPORTS_POPCNT
+-- Performing Test COMPILER_SUPPORTS_POPCNT - Failed
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) (Required is at least version "1.2.3")
 -- FAST_BUILD set to on.
 -- Build examples: ON
 -- Build C++ example: ON
 -- Build CSharp example: OFF
 -- Build dotnet package: OFF
 -- Performing Test COMPILER_SUPPORTS_INVALID_OFFSET
--- Performing Test COMPILER_SUPPORTS_INVALID_OFFSET - Success
+-- Performing Test COMPILER_SUPPORTS_INVALID_OFFSET - Failed
 -- No CSharp support
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - not found
 -- Found Threads: TRUE
--- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
--- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
--- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
--- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
 -- Performing Test COMPILER_HAS_DEPRECATED_ATTR
--- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
--- Configuring test /Users/zhenchen/Documents/HiGHS/examples/call_highs_from_cpp.cpp: ...
--- Configuring test /Users/zhenchen/Documents/HiGHS/examples/call_highs_from_cpp.cpp: ...DONE
-/Users/zhenchen/Documents/HiGHS/examples/call_highs_from_c_minimal.c
--- Configuring test /Users/zhenchen/Documents/HiGHS/examples/call_highs_from_c_minimal.c: ...
--- Configuring test /Users/zhenchen/Documents/HiGHS/examples/call_highs_from_c_minimal.c: ...DONE
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Failed
+-- Performing Test COMPILER_HAS_DEPRECATED
+-- Performing Test COMPILER_HAS_DEPRECATED - Success
+-- Configuring test D:/chenzhen/HiGHS/examples/call_highs_from_cpp.cpp: ...
+-- Configuring test D:/chenzhen/HiGHS/examples/call_highs_from_cpp.cpp: ...DONE
+D:/chenzhen/HiGHS/examples/call_highs_from_c_minimal.c
+-- Configuring test D:/chenzhen/HiGHS/examples/call_highs_from_c_minimal.c: ...
+-- Configuring test D:/chenzhen/HiGHS/examples/call_highs_from_c_minimal.c: ...DONE
 -- .Net: Use .Net Framework 2.1 support: ON
--- Configuring done (4.8s)
--- Generating done (0.1s)
--- Build files have been written to: /Users/zhenchen/Documents/HiGHS/cmake-build-debug
+-- Configuring done (26.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: D:/chenzhen/HiGHS/cmake-build-debug

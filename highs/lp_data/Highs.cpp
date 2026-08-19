@@ -1,4 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                       */
 /*    This file is part of the HiGHS linear optimization suite           */
 /*                                                                       */
@@ -1452,7 +1452,7 @@ HighsStatus Highs::optimizeModel() {
     this_presolve_time = -from_presolve_time;
     timer_.start(timer_.presolve_clock);
     const bool force_lp_presolve = true;
-    model_presolve_status_ = runPresolve(force_lp_presolve);
+    model_presolve_status_ = runPresolve(force_lp_presolve); // presolve 在这里运行
     timer_.stop(timer_.presolve_clock);
     const double to_presolve_time = timer_.read(timer_.presolve_clock);
     this_presolve_time += to_presolve_time;
