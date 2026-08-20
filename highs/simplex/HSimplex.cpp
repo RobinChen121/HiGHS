@@ -49,7 +49,7 @@ void appendNonbasicColsToBasis(HighsLp& lp, HighsBasis& highs_basis,
   if (!highs_basis.valid) {
     printf("\n!!Appending columns to invalid basis!!\n\n");
   }
-  // Add nonbasic structurals
+  // Add nonbasic structures
   if (XnumNewCol == 0) return;
   HighsInt newNumCol = lp.num_col_ + XnumNewCol;
   highs_basis.col_status.resize(newNumCol);
