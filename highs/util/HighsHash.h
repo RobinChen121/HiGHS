@@ -23,7 +23,7 @@
 
 #include "util/HighsInt.h"
 
-#ifdef HIGHS_HAVE_BITSCAN_REVERSE
+#if defined(HIGHS_HAVE_BITSCAN_REVERSE) && defined(_MSC_VER)
 #include <intrin.h>
 #pragma intrinsic(_BitScanReverse)
 #ifdef _WIN64
@@ -105,7 +105,7 @@ struct HighsHashHelpers {
 
   static int popcnt(uint64_t x) { return __builtin_popcountll(x); }
 
-#elif defined(HIGHS_HAVE_BITSCAN_REVERSE)
+#elif defined(HIGHS_HAVE_BITSCAN_REVERSE) && defined(_MSC_VER)
   static int log2i(uint64_t n) {
     unsigned long result;
 #ifdef _WIN64

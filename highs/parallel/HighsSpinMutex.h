@@ -13,7 +13,9 @@
 
 #include "HConfig.h"
 
-#ifdef HIGHS_HAVE_MM_PAUSE
+#if defined(HIGHS_HAVE_MM_PAUSE) && \
+    (defined(__i386__) || defined(__x86_64__) || defined(_M_IX86) || \
+     defined(_M_X64))
 #include <immintrin.h>
 #else
 #include <thread>
@@ -24,10 +26,11 @@ class HighsSpinMutex {
 
  public:
   static void yieldProcessor() {
-#ifdef HIGHS_HAVE_MM_PAUSE
+#if defined(HIGHS_HAVE_MM_PAUSE) && \
+    (defined(__i386__) || defined(__x86_64__) || defined(_M_IX86) || \
+     defined(_M_X64))
     _mm_pause();
 #else
-    // ToDo: See if this is OK on Mac M1
     std::this_thread::yield();
 #endif
   }
